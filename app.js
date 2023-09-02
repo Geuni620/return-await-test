@@ -36,6 +36,14 @@ async function c() {
   }
 }
 
+async function d() {
+  try {
+    await waitAndMaybeReject();
+  } catch (e) {
+    return "caught!";
+  }
+}
+
 // 각 함수를 호출하고 결과를 출력
 a()
   .then((result) => console.log(`a() result: ${result}`))
@@ -46,3 +54,6 @@ b()
 c()
   .then((result) => console.log(`c() result: ${result}`))
   .catch((e) => console.log(`c() error: ${e.message}`));
+d()
+  .then((result) => console.log(`d() result: ${result}`))
+  .catch((e) => console.log(`d() error: ${e.message}`));
